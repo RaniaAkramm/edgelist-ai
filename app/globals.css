@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink text-paper font-body;
+  background-image: radial-gradient(circle at 20% -10%, rgba(61, 220, 151, 0.08), transparent 40%),
+    radial-gradient(circle at 90% 10%, rgba(255, 180, 84, 0.06), transparent 35%);
+}
+
+::selection {
+  background: #3DDC97;
+  color: #0D1418;
+}
+
+*:focus-visible {
+  outline: 2px solid #3DDC97;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.ledger-row {
+  @apply grid items-center gap-4 border-b border-line py-4 transition-colors;
+  grid-template-columns: 2.5rem 1fr auto auto;
+}
+
+.ledger-row:hover {
+  background: rgba(61, 220, 151, 0.04);
+}
+
+.tag {
+  @apply font-mono text-[11px] uppercase tracking-wider px-2 py-1 rounded-sm border;
+}
+
+.tag-free { @apply text-edge border-edge/40 bg-edge/5; }
+.tag-paid { @apply text-signal border-signal/40 bg-signal/5; }
+.tag-freemium { @apply text-muted border-muted/40 bg-muted/5; }
+
+.grid-bg {
+  background-image: linear-gradient(rgba(31, 43, 46, 0.6) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 43, 46, 0.6) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
